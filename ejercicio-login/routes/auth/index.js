@@ -4,6 +4,7 @@ const google = require('./google');
 const facebook = require('./facebook');  // You can create new strategies 
 const linkedin = require('./linkedin');   
 const github = require('./github');   
+const auth0 = require('./auth0');   
 
 router.post('/login', function(req, res) {
 
@@ -26,7 +27,8 @@ router.get('/failed', (req, res) => res.send('You Failed to log in!'))
 
 router.use('', google);
 router.use('', facebook);
-router.use('',linkedin );
-router.use('',github );
+router.use('', linkedin );
+router.use('', github );
+router.use('', auth0 );
 
 module.exports = router

@@ -1,8 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localalgo',
-    port: 12681,
+const sequelize = new Sequelize('autenticacion', 'igna', '123456', {
+    host: 'localhost',
     dialect: 'mariadb'
 });
 
@@ -46,3 +45,12 @@ const Provider = sequelize.define('Providers', {
     console.log(all);
     // Code here
   })();
+
+
+ function getCon() {
+    return sequelize
+ }
+
+module.exports = {
+  getCon
+}

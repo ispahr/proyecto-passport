@@ -18,4 +18,24 @@ function login_provider_event(event) {
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const token = params.token;
+localStorage.setItem('token', token);
 console.log(params.token);
+
+let productos_btn = document.getElementById('traerProductos')
+productos_btn.addEventListener('click', traer_productos)
+
+function traer_productos () {
+  const url_productos = 'http://localhost:3000/productos'
+  const local_token = localStorage.getItem('token')
+  fetch(url_productos, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json',
+              'Authorization': `Bearer ${local_token}`
+                },
+  }
+  )
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  });
+}

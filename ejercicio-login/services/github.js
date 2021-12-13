@@ -2,7 +2,7 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
 require('dotenv').config()
 
-const strategy_name = 'facebook';
+const strategy_name = 'github';
 
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,

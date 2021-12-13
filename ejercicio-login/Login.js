@@ -58,6 +58,12 @@ app.post('/login', (req, res) => {
 
 })
 
+app.get('/productos', (req, res) => {
+    console.log('as')
+    res.json({'data':'estos son los productos'})
+
+})
+
 //Servidor config
 const PORT = 3000;
 app.set('port', PORT);
