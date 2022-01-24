@@ -4,6 +4,7 @@ const port = 3000;
 const passport = require('passport');
 const public_routes = require('./routes/public');
 const auth_routes = require('./routes/auth');
+const payments_routes = require('./routes/payments');
 require('./services');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(passport.initialize());
 app.use(express.json());
 app.use(public_routes);
 app.use(auth_routes);
+app.use(payments_routes);
 
 // Add headers before the routes are defined
 app.use(function (req, res, next) {
